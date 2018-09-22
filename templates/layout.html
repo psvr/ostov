@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styles %}
+    <!-- Icons-->
+    <link href="{% static "vendors/@coreui/icons/css/coreui-icons.min.css" %}" rel="stylesheet">
+    <link href="{% static "vendors/flag-icon-css/css/flag-icon.min.css" %}" rel="stylesheet">
+    <link href="{% static "vendors/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet">
+    <link href="{% static "vendors/simple-line-icons/css/simple-line-icons.css" %}" rel="stylesheet">
+    <!-- Main styles for this application-->
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+    <link href="{% static "vendors/pace-progress/css/pace.min.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block layout %}
+    <main role="main" class="container">
+      {% block container %}
+        {% block messages %}
+            {% include "partials/alert_messages.html" %}
+        {% endblock %}
+        <div class="content">
+          {% block content %}{% endblock %}
+        </div>
+      {% endblock %}
+    </main>
+    <div class="footer">
+      {% block footer %}{% endblock %}
+    </div>
+{% endblock %}
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static "vendors/jquery/js/jquery.min.js" %}"></script>
+    <script src="{% static "vendors/popper.js/js/popper.min.js" %}"></script>
+    <script src="{% static "vendors/bootstrap/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "vendors/pace-progress/js/pace.min.js" %}"></script>
+    <script src="{% static "vendors/perfect-scrollbar/js/perfect-scrollbar.min.js" %}"></script>
+    <script src="{% static "vendors/@coreui/coreui/js/coreui.min.js" %}"></script>
+{% endblock %}
+{% block extrascripts %}
+{% endblock %}

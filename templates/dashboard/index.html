@@ -1,0 +1,30 @@
+{% extends 'dashboard/layout.html' %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block breadcrumbs %}
+  <li class="breadcrumb-item active">{% trans "Dashboard" %}</li>
+{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <i class="fa fa-align-justify"></i> {% trans "Services" %}
+          </div>
+          <div class="card-body">
+              <div class="col-sm-12">
+                Hello
+              </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.col-->
+    </div>
+    <!-- /.row-->
+  </div>
+</div>
+{% endblock %}

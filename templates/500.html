@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+{% load i18n %}
+
+{% block content %}
+  <h1 class="text-center mt-5">500</h1>
+  <div class="text-center">
+    <p>{% trans "We're sorry but something went terribly wrong and we've been unable to generate the page you requested." %}</p>
+    <p>{% trans "This incident has been logged and will be addressed by an engineer as soon as possible." %}</p>
+  </div>
+{% endblock %}

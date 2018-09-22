@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Login" %}{% endblock %}
+
+{% block layout %}
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card-group">
+            <div class="card p-4">
+              <div class="card-body">
+                <h1>{% trans "Login" %}</h1>
+                <p class="text-muted">{% trans "Sign In to your account" %}</p>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="icon-user"></i>
+                        </span>
+                      </div>
+                      {{ form.username }}
+                    </div>
+                    <div class="input-group mb-4">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="icon-lock"></i>
+                        </span>
+                      </div>
+                      {{ form.password }}
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <button class="btn btn-primary px-4" type="submit">{% trans "Login" %}</button>
+                      </div>
+                    </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}
+
