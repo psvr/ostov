@@ -18,5 +18,6 @@ debug_toolbar
 conf/nginx_common.conf
 conf/nginx.conf
 conf/uwsgi.ini
+conf/gunicorn.ini
 __pycache__
 geckodriver.log

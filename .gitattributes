@@ -1,1 +1,3 @@
-static/* linguist-vendored
+* linguist-vendored
+*.html linguist-language=Python
+*.css linguist-language=Python
