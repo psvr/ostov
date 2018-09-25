@@ -29,7 +29,7 @@ INSTALLED_APPS = [
     'projects',
     'projects.accounts',
     'projects.core',
-
+    'projects.education',
 ]
 
 MIDDLEWARE = [

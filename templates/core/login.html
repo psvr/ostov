@@ -10,6 +10,11 @@
           <div class="card-group">
             <div class="card p-4">
               <div class="card-body">
+                {% if form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                        <div class="alert alert-danger" role="alert">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
                 <h1>{% trans "Login" %}</h1>
                 <p class="text-muted">{% trans "Sign In to your account" %}</p>
                 <form method="post">
