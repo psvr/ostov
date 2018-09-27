@@ -26,6 +26,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django_extensions',
+    'widget_tweaks',
+    'django_tables2',
+    'dal',
+    'dal_select2',
+    'dal_queryset_sequence',
+
     'projects',
     'projects.accounts',
     'projects.core',
@@ -113,11 +120,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, 'static'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
 
 AUTH_USER_MODEL = 'accounts.User'
 LOGIN_URL = 'core:login'
+
+LOGIN_REDIRECT_URL = '/dashboard'

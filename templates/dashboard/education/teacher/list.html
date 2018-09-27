@@ -1,0 +1,51 @@
+{% extends 'dashboard/layout.html' %}
+{% load i18n %}
+{% load render_table from django_tables2 %}
+
+{% block body_class %}{{ block.super }} catalogue {% endblock %}
+
+{% block title %}
+    {% trans "Teachers" %} | {{ block.super }}
+{% endblock %}
+
+{% block breadcrumbs %}
+      <li class="breadcrumb-item">
+        <a href="{% url 'dashboard:home' %}">{% trans "Dashboard" %}</a>
+      </li>
+      <li class="breadcrumb-item active">{% trans "Teachers" %}</li>
+{% endblock %}
+
+{% block header %}{% endblock header %}
+
+{% block content %}
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+        <div class="col-sm-12">
+            {% block search_products %}
+                <div class="row search-bar">
+                    <div class="col-sm-8">
+                        <form action="." method="get" class="form-inline">
+                            {% for name, value in request.GET.items %}
+                                {% if name not in form.fields %}
+                                    <input type="hidden" name="{{ name }}" value="{{ value }}"/>
+                                {% endif %}
+                            {% endfor %}
+                            {% include "dashboard/partials/form_fields_inline.html" with form=form %}
+                            <button type="submit" class="btn btn-primary" data-loading-text="{% trans 'Searching...' %}">{% trans "Search" %}</button>
+                            <a href="{% url 'dashboard:education-teacher-list' %}" class="btn btn-default">{% trans "Reset" %}</a>
+                        </form>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="table-header">
+                            <a href="{% url 'dashboard:education-teacher-create' %}" class="btn btn-primary btn-xs pull-right"><i class="icon-plus"></i> {% trans "Create new teacher" %}</a>
+                        </div>
+                  </div>
+                </div>
+            {% endblock %}
+            {% render_table teachers %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

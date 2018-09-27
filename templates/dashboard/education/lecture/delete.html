@@ -1,0 +1,43 @@
+{% extends 'dashboard/layout.html' %}
+{% load i18n %}
+
+{% block body_class %}{{ block.super }} create-page{% endblock %}
+
+{% block breadcrumbs %}
+      <li class="breadcrumb-item">
+        <a href="{% url 'dashboard:home' %}">{% trans "Dashboard" %}</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="{% url 'dashboard:education-lecture-list' %}">{% trans "Lectures" %}</a>
+      </li>
+      <li class="breadcrumb-item active">{% trans "Delete lecture" %}</li>
+{% endblock %}
+
+{% block headertext %}{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="table-header">
+                <h3>{% trans "Delete lecture" %}</h3>
+            </div>
+            <form action="." method="post" class="well">
+                {% csrf_token %}
+                {{ form }}
+                {% blocktrans with name=object.title %}
+                    <p>Delete lecture: <strong>{{ name }}</strong> - are you sure?</p>
+                {% endblocktrans %}
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-danger" data-loading-text="{% trans 'Deleting...' %}">{% trans "Delete" %}</button>
+                    {% trans "or" %} <a href="{% url 'dashboard:education-lecture-list' %}">{% trans "cancel" %}</a>
+                </div>
+            </form>
+        </div>
+    </div>
+  </div>
+</div>
+{{ form.media }}     
+{% endblock content %}
+

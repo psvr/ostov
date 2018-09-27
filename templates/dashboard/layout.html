@@ -12,6 +12,9 @@
     <link href="{% static "vendors/pace-progress/css/pace.min.css" %}" rel="stylesheet">
     <link href="{% static "css/ui.css" %}" rel="stylesheet">
 {% endblock %}
+{% block extrahead %}
+    <script type="text/javascript" src="{% static 'vendors/jquery/js/jquery.min.js' %}"></script>
+{% endblock %}
 {% block body %}
     <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
 {% endblock %}
@@ -41,7 +44,6 @@
 {% endblock %}
 {% block scripts %}
     {{ block.super }}
-    <script src="{% static "vendors/jquery/js/jquery.min.js" %}"></script>
     <script src="{% static "vendors/popper.js/js/popper.min.js" %}"></script>
     <script src="{% static "vendors/bootstrap/js/bootstrap.min.js" %}"></script>
     <script src="{% static "vendors/pace-progress/js/pace.min.js" %}"></script>

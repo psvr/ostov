@@ -1,0 +1,37 @@
+{% extends 'dashboard/layout.html' %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block body_class %}{{ block.super }} create-page catalogue{% endblock %}
+
+{% block title %}
+    {{ title }} | {% trans "Teachers" %} | {{ block.super }}
+{% endblock %}
+
+{% block breadcrumbs %}
+      <li class="breadcrumb-item">
+        <a href="{% url 'dashboard:home' %}">{% trans "Dashboard" %}</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="{% url 'dashboard:education-teacher-list' %}">{% trans "Teachers" %}</a>
+      </li>
+      <li class="breadcrumb-item active">{{ title }}</li>
+{% endblock %}
+
+{% block headertext %}{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="well">
+                {% include 'dashboard/partials/form.html' with includes_files=1 class='wysiwyg' %}
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+{{ form.media }}     
+{% endblock content %}
+
