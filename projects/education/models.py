@@ -54,7 +54,7 @@ class Teacher(models.Model):
 
     def name(self):
         return u' <{username}> {last_name}'.format(
-            username=self.username,
+            username=self.first_name,
             last_name=self.last_name,
         )
 

@@ -167,12 +167,12 @@ class LectureForm(forms.ModelForm):
 
 
 class LectureSearchForm(forms.Form):
-    last_name = forms.CharField(
+    title = forms.CharField(
         max_length=16, required=False, label='',
-        widget=forms.TextInput(attrs={'placeholder': _('Last name')})
+        widget=forms.TextInput(attrs={'placeholder': _('Title')})
     )
 
     def clean(self):
         cleaned_data = super(LectureSearchForm, self).clean()
-        cleaned_data['last_name'] = cleaned_data['last_name'].strip()
+        cleaned_data['title'] = cleaned_data['title'].strip()
         return cleaned_data
