@@ -2,6 +2,7 @@ from dal import autocomplete
 from django import forms
 from django.contrib.auth import get_user_model
 from django.utils.translation import ugettext_lazy as _
+from bootstrap_datepicker_plus import DateTimePickerInput
 from projects.education.models import (
     Student, EducationGroup, Teacher, Course, Lecture)
 from projects.core.widgets import DatePickerInput
@@ -145,14 +146,6 @@ class LectureForm(forms.ModelForm):
         widget=autocomplete.ModelSelect2Multiple(
             url='dashboard:education-group-autocomplete',
             forward=('groups',)))
-    start = forms.DateField(
-        widget=DatePickerInput(attrs={'type': 'date', 'class': 'form-control'}),
-        required=True
-    )
-    finish = forms.DateField(
-        widget=DatePickerInput(attrs={'type': 'date', 'class': 'form-control'}),
-        required=True
-    )
 
     def __init__(self, *args, **kwargs):
         super(LectureForm, self).__init__(*args, **kwargs)
@@ -164,6 +157,10 @@ class LectureForm(forms.ModelForm):
     class Meta:
         model = Lecture
         fields = '__all__'
+        widgets = {
+            'finish': DateTimePickerInput(),
+            'start': DateTimePickerInput(),
+        }
 
 
 class LectureSearchForm(forms.Form):

@@ -9,6 +9,7 @@ django-axes==4.4.0
 django-passwords==0.3.12
 django-autocomplete-light==3.2.10
 django-querysetsequence==0.8
+django-bootstrap-datepicker-plus
 awesome-slugify==1.6.5
 django-el-pagination==3.2.4
 python-decouple==3.1

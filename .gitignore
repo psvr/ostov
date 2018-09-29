@@ -21,3 +21,4 @@ conf/uwsgi.ini
 conf/gunicorn.ini
 __pycache__
 geckodriver.log
+/scripts

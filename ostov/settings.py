@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'dal',
     'dal_select2',
     'dal_queryset_sequence',
+    'bootstrap_datepicker_plus',
 
     'projects',
     'projects.accounts',
@@ -133,3 +134,7 @@ AUTH_USER_MODEL = 'accounts.User'
 LOGIN_URL = 'core:login'
 
 LOGIN_REDIRECT_URL = '/dashboard'
+
+BOOTSTRAP4 = {
+    'include_jquery': True,
+}
